@@ -6,7 +6,7 @@
 		"#/*": "./src/*"
 	},
 	"scripts": {
-		"dev": "vite dev --port 3000",
+		"dev": "CLOUDFLARE_ENV=dev vite dev --port 3000",
 		"generate-routes": "tsr generate",
 		"build": "vite build",
 		"preview": "pnpm run build && vite preview",
