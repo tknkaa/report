@@ -1,16 +1,12 @@
 import { betterAuth } from "better-auth";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { drizzleAdapter, type DB } from "better-auth/adapters/drizzle";
 import { getDb } from "#/db";
 import * as schema from "#/db/schema";
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import Database from "better-sqlite3";
 
-export function getAuth(env?: Env) {
-	const db = env ? getDb(env) : drizzle(new Database(":memory:"), { schema });
-
+export function buildAuth(db: DB, baseURL: string) {
 	return betterAuth({
-		baseURL: env?.BETTER_AUTH_URL ?? "http://localhost:3000",
+		baseURL,
 		database: drizzleAdapter(db, {
 			provider: "sqlite",
 			schema,
@@ -22,5 +18,6 @@ export function getAuth(env?: Env) {
 	});
 }
 
-// to generate schema with better-auth cli
-export const auth = getAuth();
+export function getAuth(env: Env) {
+	return buildAuth(getDb(env), env.BETTER_AUTH_URL);
+}
