@@ -27,7 +27,8 @@
     		{
     			"binding": "DB",
     			"database_name": "report-db-dev",
-    			"database_id": "aef71544-bde4-443a-bec4-aa0f23082659"
+    			"database_id": "aef71544-bde4-443a-bec4-aa0f23082659",
+          "remote": true
     		}
       ]
     }
