@@ -1,4 +1,4 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { getSession } from "#/lib/auth.functions";
 
 export const Route = createFileRoute("/")({
@@ -12,5 +12,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Page() {
-	return <div>Hello, world</div>;
+	return (
+		<div>
+			<Link to="/signin">sign in</Link>
+			<Link to="/signup">sign up</Link>
+		</div>
+	);
 }

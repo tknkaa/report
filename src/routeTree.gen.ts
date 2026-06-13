@@ -9,6 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SigninRouteImport } from './routes/signin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
@@ -16,6 +18,16 @@ import { Route as ProtectedNotesIndexRouteImport } from './routes/_protected/not
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ProtectedNotesNoteIdRouteImport } from './routes/_protected/notes/$noteId'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SigninRoute = SigninRouteImport.update({
+  id: '/signin',
+  path: '/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -49,6 +61,8 @@ const ProtectedNotesNoteIdRoute = ProtectedNotesNoteIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
   '/notes/$noteId': typeof ProtectedNotesNoteIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/notes/': typeof ProtectedNotesIndexRoute
@@ -56,6 +70,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
   '/notes/$noteId': typeof ProtectedNotesNoteIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/notes': typeof ProtectedNotesIndexRoute
@@ -65,20 +81,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_protected': typeof ProtectedRouteWithChildren
   '/about': typeof AboutRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
   '/_protected/notes/$noteId': typeof ProtectedNotesNoteIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_protected/notes/': typeof ProtectedNotesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/notes/$noteId' | '/api/auth/$' | '/notes/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/signin'
+    | '/signup'
+    | '/notes/$noteId'
+    | '/api/auth/$'
+    | '/notes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/notes/$noteId' | '/api/auth/$' | '/notes'
+  to:
+    | '/'
+    | '/about'
+    | '/signin'
+    | '/signup'
+    | '/notes/$noteId'
+    | '/api/auth/$'
+    | '/notes'
   id:
     | '__root__'
     | '/'
     | '/_protected'
     | '/about'
+    | '/signin'
+    | '/signup'
     | '/_protected/notes/$noteId'
     | '/api/auth/$'
     | '/_protected/notes/'
@@ -88,11 +122,27 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProtectedRoute: typeof ProtectedRouteWithChildren
   AboutRoute: typeof AboutRoute
+  SigninRoute: typeof SigninRoute
+  SignupRoute: typeof SignupRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signin': {
+      id: '/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -156,6 +206,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtectedRoute: ProtectedRouteWithChildren,
   AboutRoute: AboutRoute,
+  SigninRoute: SigninRoute,
+  SignupRoute: SignupRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
