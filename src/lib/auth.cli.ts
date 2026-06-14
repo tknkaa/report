@@ -1,9 +1,9 @@
 import { buildAuth } from "#/lib/auth";
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import Database from "better-sqlite3";
+import { drizzle } from "drizzle-orm/libsql";
+import { createClient } from "@libsql/client";
 import * as schema from "#/db/schema";
 
 export const auth = buildAuth(
-  drizzle(new Database(":memory:"), { schema }),
+  drizzle(createClient({ url: "file::memory:" }), { schema }),
   "http://localhost:3000",
 );
