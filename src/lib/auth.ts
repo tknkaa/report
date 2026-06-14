@@ -5,19 +5,19 @@ import { getDb } from "#/db";
 import * as schema from "#/db/schema";
 
 export function buildAuth(db: DB, baseURL: string) {
-	return betterAuth({
-		baseURL,
-		database: drizzleAdapter(db, {
-			provider: "sqlite",
-			schema,
-		}),
-		plugins: [tanstackStartCookies()],
-		emailAndPassword: {
-			enabled: true,
-		},
-	});
+  return betterAuth({
+    baseURL,
+    database: drizzleAdapter(db, {
+      provider: "sqlite",
+      schema,
+    }),
+    plugins: [tanstackStartCookies()],
+    emailAndPassword: {
+      enabled: true,
+    },
+  });
 }
 
 export function getAuth(env: Env) {
-	return buildAuth(getDb(env), env.BETTER_AUTH_URL);
+  return buildAuth(getDb(env), env.BETTER_AUTH_URL);
 }

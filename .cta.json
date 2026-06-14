@@ -16,9 +16,5 @@
   "routerOnly": false,
   "version": 1,
   "framework": "react",
-  "chosenAddOns": [
-    "cloudflare",
-    "drizzle",
-    "better-auth"
-  ]
+  "chosenAddOns": ["cloudflare", "drizzle", "better-auth"]
 }

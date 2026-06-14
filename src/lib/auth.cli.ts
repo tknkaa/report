@@ -4,6 +4,6 @@ import Database from "better-sqlite3";
 import * as schema from "#/db/schema";
 
 export const auth = buildAuth(
-	drizzle(new Database(":memory:"), { schema }),
-	"http://localhost:3000",
+  drizzle(new Database(":memory:"), { schema }),
+  "http://localhost:3000",
 );

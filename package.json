@@ -1,75 +1,75 @@
 {
-	"name": "report",
-	"private": true,
-	"type": "module",
-	"imports": {
-		"#/*": "./src/*"
-	},
-	"scripts": {
-		"dev": "vite dev --port 3000",
-		"generate-routes": "tsr generate",
-		"build": "vite build",
-		"preview": "pnpm run build && vite preview",
-		"test": "vitest run",
-		"fmt": "oxfmt",
-		"fmt:check": "oxfmt --check",
+  "name": "report",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "generate-routes": "tsr generate",
+    "build": "vite build",
+    "preview": "pnpm run build && vite preview",
+    "test": "vitest run",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
-		"deploy": "pnpm run build && wrangler deploy",
-		"db:generate": "drizzle-kit generate",
-		"db:migrate": "dotenv -e .env.local drizzle-kit migrate",
-		"db:migrate:prod": "dotenv -e .env.production drizzle-kit migrate",
-		"db:push": "dotenv -e .env.local drizzle-kit push",
-		"db:studio": "dotenv -e .env.local drizzle-kit studio",
-		"db:studio:prod": "dotenv -e .env.production drizzle-kit studio",
-		"cf-typegen": "wrangler types",
-		"auth:generate": "pnpx @better-auth/cli generate --config ./src/lib/auth.cli.ts --output ./src/db/auth-schema.ts"
-	},
-	"dependencies": {
-		"@cloudflare/vite-plugin": "^1.26.0",
-		"@libsql/client": "^0.17.3",
-		"@tailwindcss/vite": "^4.1.18",
-		"@tanstack/react-devtools": "latest",
-		"@tanstack/react-router": "latest",
-		"@tanstack/react-router-devtools": "latest",
-		"@tanstack/react-router-ssr-query": "latest",
-		"@tanstack/react-start": "latest",
-		"@tanstack/router-plugin": "^1.132.0",
-		"better-auth": "^1.5.3",
-		"drizzle-orm": "^0.45.1",
-		"lucide-react": "^0.545.0",
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0",
-		"tailwindcss": "^4.1.18"
-	},
-	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.16",
-		"@tanstack/devtools-vite": "latest",
-		"@tanstack/router-cli": "^1.132.0",
-		"@testing-library/dom": "^10.4.1",
-		"@testing-library/react": "^16.3.0",
-		"@types/better-sqlite3": "^7.6.0",
-		"@types/node": "^22.10.2",
-		"@types/react": "^19.2.0",
-		"@types/react-dom": "^19.2.0",
-		"@vitejs/plugin-react": "^6.0.1",
-		"better-sqlite3": "^12.10.0",
-		"dotenv-cli": "^11.0.0",
-		"drizzle-kit": "^0.31.9",
-		"jsdom": "^28.1.0",
-		"oxfmt": "^0.54.0",
-		"oxlint": "^1.69.0",
-		"tsx": "^4.21.0",
-		"typescript": "^6.0.2",
-		"vite": "^8.0.0",
-		"vitest": "^4.1.5",
-		"wrangler": "^4.99.0"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"esbuild",
-			"lightningcss",
-			"better-sqlite3"
-		]
-	}
+    "deploy": "pnpm run build && wrangler deploy",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "dotenv -e .env.local drizzle-kit migrate",
+    "db:migrate:prod": "dotenv -e .env.production drizzle-kit migrate",
+    "db:push": "dotenv -e .env.local drizzle-kit push",
+    "db:studio": "dotenv -e .env.local drizzle-kit studio",
+    "db:studio:prod": "dotenv -e .env.production drizzle-kit studio",
+    "cf-typegen": "wrangler types",
+    "auth:generate": "pnpx @better-auth/cli generate --config ./src/lib/auth.cli.ts --output ./src/db/auth-schema.ts"
+  },
+  "dependencies": {
+    "@cloudflare/vite-plugin": "^1.26.0",
+    "@libsql/client": "^0.17.3",
+    "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-devtools": "latest",
+    "@tanstack/react-router": "latest",
+    "@tanstack/react-router-devtools": "latest",
+    "@tanstack/react-router-ssr-query": "latest",
+    "@tanstack/react-start": "latest",
+    "@tanstack/router-plugin": "^1.132.0",
+    "better-auth": "^1.5.3",
+    "drizzle-orm": "^0.45.1",
+    "lucide-react": "^0.545.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@tanstack/devtools-vite": "latest",
+    "@tanstack/router-cli": "^1.132.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "better-sqlite3": "^12.10.0",
+    "dotenv-cli": "^11.0.0",
+    "drizzle-kit": "^0.31.9",
+    "jsdom": "^28.1.0",
+    "oxfmt": "^0.54.0",
+    "oxlint": "^1.69.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.0",
+    "vitest": "^4.1.5",
+    "wrangler": "^4.99.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lightningcss",
+      "better-sqlite3"
+    ]
+  }
 }

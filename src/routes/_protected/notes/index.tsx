@@ -4,30 +4,30 @@ import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_protected/notes/")({
-	loader: async () => await getNotes(),
-	component: Page,
+  loader: async () => await getNotes(),
+  component: Page,
 });
 
 function Page() {
-	const notes = Route.useLoaderData();
+  const notes = Route.useLoaderData();
   const [error, setError] = useState<string | null>(null);
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSignOut = async () => {
-    const { error } = await authClient.signOut()
-    if (error) {      
-      setError(error.message ?? "An error occurred while signing out.")
-      return
+    const { error } = await authClient.signOut();
+    if (error) {
+      setError(error.message ?? "An error occurred while signing out.");
+      return;
     }
-    router.navigate({ to: "/"})
-  }
-	return (
-		<div>
+    router.navigate({ to: "/" });
+  };
+  return (
+    <div>
       <button onClick={handleSignOut}>Sign Out</button>
       {error && <p style={{ color: "red" }}>{error}</p>}
-			{notes.map((note) => (
-				<div key={note.id}>{note.title}</div>
-			))}
-		</div>
-	);
+      {notes.map((note) => (
+        <div key={note.id}>{note.title}</div>
+      ))}
+    </div>
+  );
 }

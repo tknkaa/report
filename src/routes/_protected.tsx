@@ -3,13 +3,13 @@ import { getSession } from "#/lib/auth.functions";
 
 export const Route = createFileRoute("/_protected")({
   beforeLoad: async () => {
-    const session = await getSession()
+    const session = await getSession();
     if (!session) {
       throw redirect({
-        to: "/"
-      })
+        to: "/",
+      });
     }
-    return { user: session.user}
+    return { user: session.user };
   },
-  component: () => <Outlet />
+  component: () => <Outlet />,
 });
