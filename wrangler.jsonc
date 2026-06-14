@@ -14,25 +14,6 @@
 		"enabled": true
 	},
 	"upload_source_maps": true,
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "report-db",
-			"database_id": "88c2e567-44cf-425b-bc18-ce566cbf24bd"
-		}
-	],
-  "env": {
-    "dev": {
-      "d1_databases": [
-    		{
-    			"binding": "DB",
-    			"database_name": "report-db-dev",
-    			"database_id": "aef71544-bde4-443a-bec4-aa0f23082659",
-          "remote": true
-    		}
-      ]
-    }
-  }
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

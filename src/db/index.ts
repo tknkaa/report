@@ -1,6 +1,9 @@
-import { drizzle } from "drizzle-orm/d1";
-import * as schema from "./schema";
+import { drizzle } from "drizzle-orm/libsql";
 
 export function getDb(env: Env) {
-	return drizzle(env.DB, { schema });
+  const db = drizzle({ connection: {
+    url: env.DATABASE_URL,
+    authToken: env.DATABASE_AUTH_TOKEN,
+  }})
+  return db
 }

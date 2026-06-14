@@ -6,7 +6,7 @@
 		"#/*": "./src/*"
 	},
 	"scripts": {
-		"dev": "CLOUDFLARE_ENV=dev vite dev --port 3000",
+		"dev": "vite dev --port 3000",
 		"generate-routes": "tsr generate",
 		"build": "vite build",
 		"preview": "pnpm run build && vite preview",
@@ -22,6 +22,7 @@
 	},
 	"dependencies": {
 		"@cloudflare/vite-plugin": "^1.26.0",
+		"@libsql/client": "^0.17.3",
 		"@tailwindcss/vite": "^4.1.18",
 		"@tanstack/react-devtools": "latest",
 		"@tanstack/react-router": "latest",
