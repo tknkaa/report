@@ -23,7 +23,8 @@
     "db:studio": "dotenv -e .env.local drizzle-kit studio",
     "db:studio:prod": "dotenv -e .env.production drizzle-kit studio",
     "cf-typegen": "wrangler types",
-    "auth:generate": "pnpx @better-auth/cli generate --config ./src/lib/auth.cli.ts --output ./src/db/auth-schema.ts"
+    "auth:generate": "pnpx @better-auth/cli generate --config ./src/lib/auth.cli.ts --output ./src/db/auth-schema.ts",
+    "postinstall": "lefthook install"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.26.0",
@@ -57,6 +58,7 @@
     "dotenv-cli": "^11.0.0",
     "drizzle-kit": "^0.31.9",
     "jsdom": "^28.1.0",
+    "lefthook": "^2.1.9",
     "oxfmt": "^0.54.0",
     "oxlint": "^1.69.0",
     "tsx": "^4.21.0",
