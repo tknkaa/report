@@ -1,11 +1,11 @@
 pre-commit:
   parallel: true
   jobs:
-    - name: oxfmt 
+    - name: oxfmt
       glob: "*.{ts,tsx,json,jsonc}"
       run: pnpm oxfmt --write {staged_files}
       stage_fixed: true
-    - name: eslint 
+    - name: eslint
       glob: "*.{ts,tsx}"
       run: pnpm oxlint --fix {staged_files}
       stage_fixed: true
