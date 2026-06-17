@@ -1,5 +1,5 @@
 import { authClient } from "#/lib/auth-client";
-import { getNotes } from "#/lib/notes.functions";
+import { createNote, getNotes } from "#/lib/notes.functions";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
@@ -21,10 +21,16 @@ function Page() {
     }
     router.navigate({ to: "/" });
   };
+
+  const handleCreateNote = async () => {
+    const { id } = await createNote({ data: { title: "Untitled", content: "" } });
+    router.navigate({ to: "/notes/$noteId", params: { noteId: id } });
+  };
   return (
     <div>
       <button onClick={handleSignOut}>Sign Out</button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <button onClick={handleCreateNote}>Create Note</button>
+      {error && <p className="text-red-500">{error}</p>}
       {notes.map((note) => (
         <div key={note.id}>{note.title}</div>
       ))}
