@@ -45,7 +45,7 @@ function Page() {
           save(titleRef.current, editor ? JSON.stringify(editor.getJSON()) : note.content);
         }}
       />
-      <EditorContent editor={editor} />
+      <EditorContent editor={editor} className="prose" />
     </div>
   );
 }
