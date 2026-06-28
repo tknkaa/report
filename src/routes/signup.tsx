@@ -1,6 +1,6 @@
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
-import { getSession } from "@/lib/auth.functions";
-import { authClient } from "@/lib/auth-client";
+import { getSession } from "@/features/auth";
+import { authClient } from "@/features/auth/client";
 import { useState, type SubmitEvent } from "react";
 
 export const Route = createFileRoute("/signup")({

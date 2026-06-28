@@ -1,4 +1,4 @@
-import { buildAuth } from "@/lib/auth";
+import { buildAuth } from "./config";
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
 import * as schema from "@/db/schema";

@@ -2,9 +2,6 @@
   "name": "report",
   "private": true,
   "type": "module",
-  "imports": {
-    "#/*": "./src/*"
-  },
   "scripts": {
     "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
@@ -23,7 +20,7 @@
     "db:studio": "dotenv -e .env.local drizzle-kit studio",
     "db:studio:prod": "dotenv -e .env.production drizzle-kit studio",
     "cf-typegen": "wrangler types",
-    "auth:generate": "pnpx @better-auth/cli generate --config ./src/lib/auth.cli.ts --output ./src/db/auth-schema.ts",
+    "auth:generate": "pnpx @better-auth/cli generate --config ./src/features/auth/cli.ts --output ./src/db/auth-schema.ts",
     "postinstall": "lefthook install"
   },
   "dependencies": {
@@ -41,7 +38,8 @@
     "lucide-react": "^0.545.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "valibot": "^1.4.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",

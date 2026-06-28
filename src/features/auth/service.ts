@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequestHeaders } from "@tanstack/react-start/server";
-import { getAuth } from "./auth";
+import { getAuth } from "./config";
 import { env } from "cloudflare:workers";
 
 const fetchSession = async () => {
