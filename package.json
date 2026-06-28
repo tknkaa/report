@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
+    "dev": "concurrently \"vite dev --port 3000\" \"turso dev --db-file local.db\"",
     "generate-routes": "tsr generate",
     "build": "vite build",
     "preview": "pnpm run build && vite preview",
@@ -51,6 +51,7 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^10.0.3",
     "dotenv-cli": "^11.0.0",
     "drizzle-kit": "^0.31.9",
     "jsdom": "^28.1.0",
