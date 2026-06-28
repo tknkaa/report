@@ -1,6 +1,6 @@
 import { authClient } from "@/features/auth/client";
 import { createNote, listNotes } from "@/features/notes";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_protected/notes/")({
@@ -32,7 +32,9 @@ function Page() {
       <button onClick={handleCreateNote}>Create Note</button>
       {error && <p className="text-red-500">{error}</p>}
       {notes.map((note) => (
-        <div key={note.id}>{note.title}</div>
+        <Link key={note.id} to="/notes/$noteId" params={{ noteId: note.id }}>
+          {note.title}
+        </Link>
       ))}
     </div>
   );
