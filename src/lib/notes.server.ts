@@ -3,7 +3,7 @@ import { notes } from "@/db/schema";
 import { desc, eq, and } from "drizzle-orm";
 import { env } from "cloudflare:workers";
 
-export const findNotes = async (userId: string) => {
+export const selectNotes = async (userId: string) => {
   const db = getDb(env);
   const result = await db
     .select()

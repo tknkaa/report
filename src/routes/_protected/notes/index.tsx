@@ -1,10 +1,10 @@
 import { authClient } from "@/lib/auth-client";
-import { createNote, getNotes } from "@/lib/notes.functions";
+import { createNote, listNotes } from "@/lib/notes.functions";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_protected/notes/")({
-  loader: async () => await getNotes(),
+  loader: async () => await listNotes(),
   component: Page,
 });
 

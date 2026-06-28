@@ -1,10 +1,10 @@
 import { createServerFn } from "@tanstack/react-start";
 import { ensureSession } from "./auth.functions";
-import { findNotes, insertNote, updateNote } from "./notes.server";
+import { selectNotes, insertNote, updateNote } from "./notes.server";
 
-export const getNotes = createServerFn({ method: "GET" }).handler(async () => {
+export const listNotes = createServerFn({ method: "GET" }).handler(async () => {
   const session = await ensureSession();
-  const result = await findNotes(session.user.id);
+  const result = await selectNotes(session.user.id);
   return result;
 });
 
