@@ -3,6 +3,15 @@ import { notes } from "@/db/schema";
 import { desc, eq, and } from "drizzle-orm";
 import { env } from "cloudflare:workers";
 
+export const selectNoteById = async (userId: string, noteId: string) => {
+  const db = getDb(env);
+  const [note] = await db
+    .select()
+    .from(notes)
+    .where(and(eq(notes.id, noteId), eq(notes.userId, userId)));
+  return note ?? null;
+};
+
 export const selectNotes = async (userId: string) => {
   const db = getDb(env);
   const result = await db

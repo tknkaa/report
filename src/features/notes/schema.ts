@@ -1,5 +1,9 @@
 import * as v from "valibot";
 
+export const GetNoteSchema = v.object({
+  noteId: v.string(),
+});
+
 export const CreateNoteSchema = v.object({
   title: v.string(),
   content: v.string(),

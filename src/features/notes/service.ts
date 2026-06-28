@@ -1,8 +1,17 @@
 import { createServerFn } from "@tanstack/react-start";
 import * as v from "valibot";
 import { ensureSession } from "@/features/auth/service";
-import { selectNotes, insertNote, updateNote } from "./repository";
-import { CreateNoteSchema, EditNoteSchema } from "./schema";
+import { selectNoteById, selectNotes, insertNote, updateNote } from "./repository";
+import { GetNoteSchema, CreateNoteSchema, EditNoteSchema } from "./schema";
+
+export const getNote = createServerFn({ method: "GET" })
+  .validator(v.parser(GetNoteSchema))
+  .handler(async ({ data }) => {
+    const session = await ensureSession();
+    const note = await selectNoteById(session.user.id, data.noteId);
+    if (!note) throw new Error("Note not found");
+    return note;
+  });
 
 export const listNotes = createServerFn({ method: "GET" }).handler(async () => {
   const session = await ensureSession();

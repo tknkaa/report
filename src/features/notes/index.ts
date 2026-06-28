@@ -1,1 +1,1 @@
-export { listNotes, createNote, editNote } from "./service";
+export { getNote, listNotes, createNote, editNote } from "./service";
