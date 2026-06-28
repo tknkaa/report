@@ -8,199 +8,183 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as SigninRouteImport } from './routes/signin'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as ProtectedRouteImport } from './routes/_protected'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProtectedNotesIndexRouteImport } from './routes/_protected/notes/index'
-import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
-import { Route as ProtectedNotesNoteIdRouteImport } from './routes/_protected/notes/$noteId'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as SignupRouteImport } from "./routes/signup";
+import { Route as SigninRouteImport } from "./routes/signin";
+import { Route as AboutRouteImport } from "./routes/about";
+import { Route as ProtectedRouteImport } from "./routes/_protected";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as ProtectedNotesIndexRouteImport } from "./routes/_protected/notes/index";
+import { Route as ApiAuthSplatRouteImport } from "./routes/api/auth/$";
+import { Route as ProtectedNotesNoteIdRouteImport } from "./routes/_protected/notes/$noteId";
 
 const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
+  id: "/signup",
+  path: "/signup",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const SigninRoute = SigninRouteImport.update({
-  id: '/signin',
-  path: '/signin',
+  id: "/signin",
+  path: "/signin",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+  id: "/about",
+  path: "/about",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ProtectedRoute = ProtectedRouteImport.update({
-  id: '/_protected',
+  id: "/_protected",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ProtectedNotesIndexRoute = ProtectedNotesIndexRouteImport.update({
-  id: '/notes/',
-  path: '/notes/',
+  id: "/notes/",
+  path: "/notes/",
   getParentRoute: () => ProtectedRoute,
-} as any)
+} as any);
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
+  id: "/api/auth/$",
+  path: "/api/auth/$",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ProtectedNotesNoteIdRoute = ProtectedNotesNoteIdRouteImport.update({
-  id: '/notes/$noteId',
-  path: '/notes/$noteId',
+  id: "/notes/$noteId",
+  path: "/notes/$noteId",
   getParentRoute: () => ProtectedRoute,
-} as any)
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/signin': typeof SigninRoute
-  '/signup': typeof SignupRoute
-  '/notes/$noteId': typeof ProtectedNotesNoteIdRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/notes/': typeof ProtectedNotesIndexRoute
+  "/": typeof IndexRoute;
+  "/about": typeof AboutRoute;
+  "/signin": typeof SigninRoute;
+  "/signup": typeof SignupRoute;
+  "/notes/$noteId": typeof ProtectedNotesNoteIdRoute;
+  "/api/auth/$": typeof ApiAuthSplatRoute;
+  "/notes/": typeof ProtectedNotesIndexRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/signin': typeof SigninRoute
-  '/signup': typeof SignupRoute
-  '/notes/$noteId': typeof ProtectedNotesNoteIdRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/notes': typeof ProtectedNotesIndexRoute
+  "/": typeof IndexRoute;
+  "/about": typeof AboutRoute;
+  "/signin": typeof SigninRoute;
+  "/signup": typeof SignupRoute;
+  "/notes/$noteId": typeof ProtectedNotesNoteIdRoute;
+  "/api/auth/$": typeof ApiAuthSplatRoute;
+  "/notes": typeof ProtectedNotesIndexRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/_protected': typeof ProtectedRouteWithChildren
-  '/about': typeof AboutRoute
-  '/signin': typeof SigninRoute
-  '/signup': typeof SignupRoute
-  '/_protected/notes/$noteId': typeof ProtectedNotesNoteIdRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
-  '/_protected/notes/': typeof ProtectedNotesIndexRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/_protected": typeof ProtectedRouteWithChildren;
+  "/about": typeof AboutRoute;
+  "/signin": typeof SigninRoute;
+  "/signup": typeof SignupRoute;
+  "/_protected/notes/$noteId": typeof ProtectedNotesNoteIdRoute;
+  "/api/auth/$": typeof ApiAuthSplatRoute;
+  "/_protected/notes/": typeof ProtectedNotesIndexRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/signin'
-    | '/signup'
-    | '/notes/$noteId'
-    | '/api/auth/$'
-    | '/notes/'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/signin'
-    | '/signup'
-    | '/notes/$noteId'
-    | '/api/auth/$'
-    | '/notes'
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: "/" | "/about" | "/signin" | "/signup" | "/notes/$noteId" | "/api/auth/$" | "/notes/";
+  fileRoutesByTo: FileRoutesByTo;
+  to: "/" | "/about" | "/signin" | "/signup" | "/notes/$noteId" | "/api/auth/$" | "/notes";
   id:
-    | '__root__'
-    | '/'
-    | '/_protected'
-    | '/about'
-    | '/signin'
-    | '/signup'
-    | '/_protected/notes/$noteId'
-    | '/api/auth/$'
-    | '/_protected/notes/'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/_protected"
+    | "/about"
+    | "/signin"
+    | "/signup"
+    | "/_protected/notes/$noteId"
+    | "/api/auth/$"
+    | "/_protected/notes/";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  ProtectedRoute: typeof ProtectedRouteWithChildren
-  AboutRoute: typeof AboutRoute
-  SigninRoute: typeof SigninRoute
-  SignupRoute: typeof SignupRoute
-  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  IndexRoute: typeof IndexRoute;
+  ProtectedRoute: typeof ProtectedRouteWithChildren;
+  AboutRoute: typeof AboutRoute;
+  SigninRoute: typeof SigninRoute;
+  SignupRoute: typeof SignupRoute;
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/signin': {
-      id: '/signin'
-      path: '/signin'
-      fullPath: '/signin'
-      preLoaderRoute: typeof SigninRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_protected': {
-      id: '/_protected'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof ProtectedRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_protected/notes/': {
-      id: '/_protected/notes/'
-      path: '/notes'
-      fullPath: '/notes/'
-      preLoaderRoute: typeof ProtectedNotesIndexRouteImport
-      parentRoute: typeof ProtectedRoute
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_protected/notes/$noteId': {
-      id: '/_protected/notes/$noteId'
-      path: '/notes/$noteId'
-      fullPath: '/notes/$noteId'
-      preLoaderRoute: typeof ProtectedNotesNoteIdRouteImport
-      parentRoute: typeof ProtectedRoute
-    }
+    "/signup": {
+      id: "/signup";
+      path: "/signup";
+      fullPath: "/signup";
+      preLoaderRoute: typeof SignupRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/signin": {
+      id: "/signin";
+      path: "/signin";
+      fullPath: "/signin";
+      preLoaderRoute: typeof SigninRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/about": {
+      id: "/about";
+      path: "/about";
+      fullPath: "/about";
+      preLoaderRoute: typeof AboutRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_protected": {
+      id: "/_protected";
+      path: "";
+      fullPath: "/";
+      preLoaderRoute: typeof ProtectedRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_protected/notes/": {
+      id: "/_protected/notes/";
+      path: "/notes";
+      fullPath: "/notes/";
+      preLoaderRoute: typeof ProtectedNotesIndexRouteImport;
+      parentRoute: typeof ProtectedRoute;
+    };
+    "/api/auth/$": {
+      id: "/api/auth/$";
+      path: "/api/auth/$";
+      fullPath: "/api/auth/$";
+      preLoaderRoute: typeof ApiAuthSplatRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/_protected/notes/$noteId": {
+      id: "/_protected/notes/$noteId";
+      path: "/notes/$noteId";
+      fullPath: "/notes/$noteId";
+      preLoaderRoute: typeof ProtectedNotesNoteIdRouteImport;
+      parentRoute: typeof ProtectedRoute;
+    };
   }
 }
 
 interface ProtectedRouteChildren {
-  ProtectedNotesNoteIdRoute: typeof ProtectedNotesNoteIdRoute
-  ProtectedNotesIndexRoute: typeof ProtectedNotesIndexRoute
+  ProtectedNotesNoteIdRoute: typeof ProtectedNotesNoteIdRoute;
+  ProtectedNotesIndexRoute: typeof ProtectedNotesIndexRoute;
 }
 
 const ProtectedRouteChildren: ProtectedRouteChildren = {
   ProtectedNotesNoteIdRoute: ProtectedNotesNoteIdRoute,
   ProtectedNotesIndexRoute: ProtectedNotesIndexRoute,
-}
+};
 
-const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
-  ProtectedRouteChildren,
-)
+const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(ProtectedRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -209,16 +193,16 @@ const rootRouteChildren: RootRouteChildren = {
   SigninRoute: SigninRoute,
   SignupRoute: SignupRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
+import type { getRouter } from "./router.tsx";
+import type { createStart } from "@tanstack/react-start";
+declare module "@tanstack/react-start" {
   interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
+    ssr: true;
+    router: Awaited<ReturnType<typeof getRouter>>;
   }
 }

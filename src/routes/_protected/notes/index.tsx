@@ -1,5 +1,5 @@
-import { authClient } from "#/lib/auth-client";
-import { createNote, getNotes } from "#/lib/notes.functions";
+import { authClient } from "@/lib/auth-client";
+import { createNote, getNotes } from "@/lib/notes.functions";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 

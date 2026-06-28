@@ -1,5 +1,5 @@
-import { getDb } from "#/db";
-import { notes } from "#/db/schema";
+import { getDb } from "@/db";
+import { notes } from "@/db/schema";
 import { desc, eq, and } from "drizzle-orm";
 import { env } from "cloudflare:workers";
 
